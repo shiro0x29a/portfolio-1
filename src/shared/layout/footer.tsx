@@ -55,6 +55,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
         </div>
 
         <div className="border-border mt-8 border-t pt-8 text-center">
