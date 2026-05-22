@@ -78,30 +78,8 @@ const Header = () => {
           </nav>
 
           <div className="z-10 hidden items-center gap-2 lg:flex">
-            <div className="border-border mr-2 flex items-center gap-1 border-r pr-2">
-              <ThemeSwitcher />
-              <LanguageSwitcher />
-            </div>
-
-            {user ? (
-              <div className="flex items-center gap-2">
-                <Link href="/dashboard" className="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-2 hover:bg-muted transition-colors">
-                  <div className="bg-primary h-2 w-2 shrink-0 rounded-full" />
-                  <span className="text-muted-foreground max-w-[120px] truncate text-xs">
-                    {user.email}
-                  </span>
-                </Link>
-                <Button variant="outline" size="sm" className="h-8 text-xs" onClick={logout}>
-                  {t("navigation.logout")}
-                </Button>
-              </div>
-            ) : (
-              <Link href="/auth/login">
-                <Button size="sm" className="h-8 text-xs">
-                  {t("navigation.login")}
-                </Button>
-              </Link>
-            )}
+            <ThemeSwitcher />
+            <LanguageSwitcher />
           </div>
 
           <div className="z-10 flex items-center gap-2 lg:hidden">
@@ -160,38 +138,6 @@ const Header = () => {
                 Projects
               </Link>
             </nav>
-
-            <div className="border-border border-t pt-3">
-              {user ? (
-                <div className="space-y-3">
-                  <Link 
-                    href="/dashboard" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-2 hover:bg-muted transition-colors"
-                  >
-                    <div className="bg-primary h-2 w-2 shrink-0 rounded-full" />
-                    <span className="text-muted-foreground truncate text-xs">{user.email}</span>
-                  </Link>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                    onClick={() => {
-                      logout();
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    {t("navigation.logout")}
-                  </Button>
-                </div>
-              ) : (
-                <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button size="sm" className="w-full">
-                    {t("navigation.login")}
-                  </Button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
       )}
