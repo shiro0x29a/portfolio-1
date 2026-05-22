@@ -57,12 +57,6 @@ export function Footer() {
             </ul>
           </div>
         </div>
-
-        <div className="border-border mt-8 border-t pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
-            &copy; All rights reserved.
-          </p>
-        </div>
       </div>
     </footer>
   )
