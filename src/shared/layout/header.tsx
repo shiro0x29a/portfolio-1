@@ -36,7 +36,7 @@ const Header = () => {
             >
               <Logo size={28} className="h-7 w-7" />
               <div className="flex flex-col text-lg leading-tight font-semibold whitespace-nowrap">
-                {siteConfig.appName || siteConfig.title}
+                Portfolio
               </div>
             </Link>
           </div>

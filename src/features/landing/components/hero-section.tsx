@@ -25,7 +25,7 @@ const HeroSection = () => {
                 {portfolioConfig.personal.title}
               </h2>
             </div>
-            <p className="text-muted-foreground max-w-4xl text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               {portfolioConfig.personal.description}
             </p>
           </div>

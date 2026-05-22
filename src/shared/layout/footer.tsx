@@ -9,9 +9,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <h3 className="mb-4 text-lg font-semibold">{siteConfig.appName}</h3>
+            <h3 className="mb-4 text-lg font-semibold">Shiro 0x29a</h3>
             <p className="text-muted-foreground text-sm">
-              {siteConfig.description || "A production-ready Next.js boilerplate"}
+              Telegram - <a href="https://t.me/aizen_hogyoku" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">@aizen_hogyoku</a>
             </p>
           </div>
 
