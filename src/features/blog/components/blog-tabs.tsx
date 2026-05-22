@@ -9,6 +9,7 @@ const tabs = [
   { label: 'NEWS', href: '/blog/news' },
   { label: 'FAQ', href: '/blog/faq' },
   { label: 'USEFUL ARTICLES', href: '/blog/articles' },
+  { label: 'PROJECTS', href: '/blog/projects' },
 ]
 
 export function BlogTabs() {
