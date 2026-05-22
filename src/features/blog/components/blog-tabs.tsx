@@ -6,10 +6,10 @@ import { cn } from '@/shared/lib/utils'
 
 const tabs = [
   { label: 'ALL', href: '/blog/all' },
+  { label: 'PROJECTS', href: '/blog/projects' },
   { label: 'NEWS', href: '/blog/news' },
   { label: 'FAQ', href: '/blog/faq' },
   { label: 'USEFUL ARTICLES', href: '/blog/articles' },
-  { label: 'PROJECTS', href: '/blog/projects' },
 ]
 
 export function BlogTabs() {
