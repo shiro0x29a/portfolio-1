@@ -8,7 +8,7 @@
 export const portfolioConfig = {
   // Personal Information
   personal: {
-    greeting: "Hi I am",
+    greeting: "Hi! I am",
     name: "Shiro 0x29a",
     title: "Fullstack Developer",
     description: "I can help you build user-focused websites and applications that will increase business productivity, actuate competition advantages and revenue growth. Look through some of my work and experience! If you like what you see and have a project you need coded, don't hestiate to contact me.",
