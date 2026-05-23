@@ -4,6 +4,7 @@ import { useLanguage } from "@/features/i18n";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import Image from "next/image";
+import { ScrollDown } from "./scroll-down";
 
 const HeroSection = () => {
   const { locale } = useLanguage();
@@ -12,7 +13,7 @@ const HeroSection = () => {
   return (
     <div className={`mx-auto max-w-7xl px-4 py-12 ${isRtl ? "text-right" : "text-left"}`}>
       {/* Hero Card */}
-      <Card className="mb-8 transition-shadow hover:shadow-lg h-[calc(100vh-10rem)] flex items-center">
+      <Card className="mb-8 transition-shadow hover:shadow-lg h-[calc(100vh-8rem)] flex items-center relative">
         <CardContent className="py-8 w-full">
           <div className="flex flex-col md:flex-row items-start gap-12">
             {/* Avatar */}
@@ -45,10 +46,11 @@ const HeroSection = () => {
             </div>
           </div>
         </CardContent>
+        <ScrollDown />
       </Card>
 
       {/* Skills Section */}
-      <div className="mb-6">
+      <div id="skills" className="mb-6">
         <h2 className="mb-6 text-3xl font-bold">My Skills</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {portfolioConfig.skills.map((skill, index) => (
