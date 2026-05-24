@@ -13,15 +13,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
 
   return (
     <div className="mb-12">
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-3xl font-bold">Recent Projects</h2>
-        <Link
-          href="/blog/projects"
-          className="text-primary hover:underline font-medium"
-        >
-          View all →
-        </Link>
-      </div>
+      <h2 className="text-3xl font-bold text-center mb-6">Recent Projects</h2>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.slice(0, 6).map((project) => {
@@ -77,6 +69,29 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
             </Link>
           )
         })}
+      </div>
+
+      <div className="flex justify-center">
+        <Link
+          href="/blog/projects"
+          className="inline-flex items-center gap-2 px-6 py-1 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
+        >
+          View all projects
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </div>
   )

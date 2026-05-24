@@ -20,7 +20,7 @@ const Page = async () => {
     <div>
       <HeroSection />
       {projects && projects.docs.length > 0 && (
-        <div id="projects" className="mx-auto max-w-7xl px-4 py-12">
+        <div id="projects" className="mx-auto max-w-7xl px-4 py-8">
           <RecentProjects projects={projects.docs} />
         </div>
       )}
