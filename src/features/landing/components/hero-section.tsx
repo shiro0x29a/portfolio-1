@@ -50,9 +50,9 @@ const HeroSection = () => {
       </Card>
 
       {/* Skills Section */}
-      <div id="skills" className="mb-6">
-        <h2 className="mb-6 text-3xl font-bold">My Skills</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div id="skills" className="mb-6 mt-16 h-screen relative">
+        <h2 className="pt-8 mb-6 text-3xl font-bold text-center">My Skills</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 pb-20">
           {portfolioConfig.skills.map((skill, index) => (
             <Card key={index} className="transition-shadow hover:shadow-lg">
               <CardHeader>
@@ -68,6 +68,9 @@ const HeroSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2">
+          <ScrollDown targetId="projects" />
         </div>
       </div>
     </div>

@@ -2,11 +2,22 @@
 
 import { ChevronDown } from "lucide-react";
 
-export function ScrollDown() {
+interface ScrollDownProps {
+  targetId?: string;
+}
+
+export function ScrollDown({ targetId = "skills" }: ScrollDownProps) {
   const handleScroll = () => {
-    const skillsSection = document.getElementById("skills");
-    if (skillsSection) {
-      skillsSection.scrollIntoView({ behavior: "smooth" });
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      const offset = 80; // offset in pixels
+      const elementPosition = targetSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
