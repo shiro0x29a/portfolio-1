@@ -32,7 +32,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               className="group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-shadow"
             >
               {coverImage && (
-                <div className="relative aspect-video">
+                <div className="relative aspect-[5/2]">
                   <Image
                     src={coverImage.sizes?.large?.url || coverImage.url || ''}
                     alt={coverImage.alt || project.title}
@@ -74,7 +74,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
       <div className="flex justify-center">
         <Link
           href="/blog/projects"
-          className="inline-flex items-center gap-2 px-6 py-1 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
+          className="inline-flex items-center gap-2 px-6 py-2 mt-4 bg-muted text-foreground rounded-lg font-medium hover:bg-muted/70 transition-colors shadow-sm hover:shadow-md"
         >
           View all projects
           <svg
