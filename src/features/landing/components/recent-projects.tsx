@@ -32,12 +32,12 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               className="group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-shadow"
             >
               {coverImage && (
-                <div className="relative aspect-[5/2]">
+                <div className="relative aspect-[2/1]">
                   <Image
                     src={coverImage.sizes?.large?.url || coverImage.url || ''}
                     alt={coverImage.alt || project.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover grayscale group-hover:grayscale group-hover:invert group-hover:scale-105 transition-all duration-500"
                   />
                 </div>
               )}
