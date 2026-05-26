@@ -1,12 +1,46 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Post } from '@/features/payload/lib/types'
+import { useEffect, useRef, useState } from 'react'
 
 interface RecentProjectsProps {
   projects: Post[]
 }
 
 export function RecentProjects({ projects }: RecentProjectsProps) {
+  const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set())
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => new Set(prev).add(entry.target.id))
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    )
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    const cards = document.querySelectorAll('[data-project-card]')
+    cards.forEach((card) => {
+      if (observerRef.current) {
+        observerRef.current.observe(card)
+      }
+    })
+  }, [projects])
+
   if (!projects || projects.length === 0) {
     return null
   }
@@ -16,7 +50,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
       <h2 className="text-3xl font-bold text-center mb-6">Recent Projects</h2>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.slice(0, 6).map((project) => {
+        {projects.slice(0, 6).map((project, index) => {
           const coverImage = typeof project.coverImage === 'object' ? project.coverImage : null
           const categories = Array.isArray(project.categories) 
             ? project.categories.map(cat => typeof cat === 'object' ? cat : null).filter(Boolean)
@@ -24,12 +58,21 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
           const tags = Array.isArray(project.tags)
             ? project.tags.map(tag => typeof tag === 'object' ? tag : null).filter(Boolean)
             : []
+          
+          const isVisible = visibleCards.has(`project-${project.id}`)
 
           return (
             <Link
               key={project.id}
+              id={`project-${project.id}`}
+              data-project-card
               href={`/blog/${project.slug}`}
-              className="group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-shadow"
+              className={`group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-all duration-700 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {coverImage && (
                 <div className="relative aspect-[5/2]">
