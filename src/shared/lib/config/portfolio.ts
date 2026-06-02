@@ -17,49 +17,39 @@ export const portfolioConfig = {
   // Skills - 3x3 grid (9 items)
   skills: [
     {
-      icon: "🤖",
-      title: "Telegram bots",
-      description: "aiogram — from simple to enterprise-grade",
+      icon: "⚛️",
+      title: "Frontend",
+      tags: ["React", "Next.js", "CSS", "TypeScript", "React Query", "Zustand", "Zod"],
     },
     {
-      icon: "🥸",
-      title: "User bots",
-      description: "pyrogram — automation, monitoring, stealth",
+      icon: "⚙️",
+      title: "Backend",
+      tags: ["Node.js", "Express", "Nest.js", "FastAPI"],
+    },
+    {
+      icon: "🤖",
+      title: "Telegram Bots",
+      tags: ["aiogram", "kurigram"],
     },
     {
       icon: "🕸️",
-      title: "Parsers & scrapers",
-      description: "aiohttp — including anti-bot bypass",
-    },
-    {
-      icon: "⚡",
-      title: "Backend APIs",
-      description: "FastAPI, scalable architecture",
-    },
-    {
-      icon: "⚛️",
-      title: "React / Next.js",
-      description: "modern UI, SSR/SSG, SaaS apps",
-    },
-    {
-      icon: "🐱",
-      title: "Node.js / Nest.js",
-      description: "clean architecture, scalable services, API ecosystems",
+      title: "Parsers & Scrapers",
+      tags: ["Adaptive Rate Control", "Proxy Health Management", "Session Orchestration", "Bypass Cloudflare"],
     },
     {
       icon: "🗄️",
       title: "Data Layer",
-      description: "SQLite, PostgreSQL, MongoDB, Redis, optimization & scaling",
+      tags: ["SQLite", "PostgreSQL", "MongoDB", "SQLAlchemy", "Redis", "Prisma", "Drizzle"],
     },
     {
-      icon: "☁️",
-      title: "DevOps / Infrastructure",
-      description: "Docker, Linux, CI/CD, deployment",
+      icon: "🛠",
+      title: "Tools & Workflow",
+      tags: ["Git", "Docker", "CI/CD", "Linux", "Vite"],
     },
     {
       icon: "💻",
       title: "Languages",
-      description: "Python, JavaScript, Bash, Lua",
+      tags: ["Python", "JavaScript", "Bash", "Lua"],
     },
   ],
 
