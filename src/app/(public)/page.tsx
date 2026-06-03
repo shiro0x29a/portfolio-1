@@ -1,5 +1,5 @@
 import { HeroSection } from "@/features/landing";
-import { RecentProjects } from "@/features/landing/components/recent-projects";
+import { RecentProjects } from "@/features/landing/components/projects-section";
 import { getPosts, getCategoryBySlug } from "@/features/payload/lib/queries";
 
 const Page = async () => {
