@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/features/i18n";
 import { AuthProvider, SessionProvider } from "@/features/auth";
 import { ThemeProvider } from "@/features/theme";
 import { siteConfig, baseUrl } from "@/shared/lib/config/site";
+import CustomCursor from "@/shared/components/cursor/custom-cursor";
 
 import Script from "next/script";
 import "../globals.css";
@@ -107,6 +108,7 @@ const PublicLayout = ({
         {baseUrl && <link rel="canonical" href={`${baseUrl}${siteConfig.canonicalPath}`} />}
       </head>
       <body className="font-sans antialiased">
+        <CustomCursor />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
