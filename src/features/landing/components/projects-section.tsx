@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Post } from '@/features/payload/lib/types'
 import { useEffect, useRef, useState } from 'react'
+import styles from './styles/projects-section.module.css'
 
 interface RecentProjectsProps {
   projects: Post[]
@@ -46,17 +47,17 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
   }
 
   return (
-    <div className="mb-12">
-      <div className="text-center">
-        <p className="mb-3.5 text-[0.78rem] font-normal text-muted-foreground tracking-[0.25em] uppercase flex items-center justify-center gap-2.5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          <span className="w-8 h-[1px] bg-muted-foreground"></span>
+    <div className={styles.section}>
+      <div className={styles.header}>
+        <p className={`text-muted-foreground ${styles.label}`}>
+          <span className="bg-muted-foreground w-8 h-[1px]"></span>
           What I've Built
         </p>
-        <h2 className="inline-block font-extrabold leading-[1.1] mb-5 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent" style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)' }}>Featured Projects</h2>
-        <p className="text-muted-foreground mb-6 leading-[1.7] mx-auto" style={{ maxWidth: '520px' }}>A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.</p>
+        <h2 className={styles.title}>Featured Projects</h2>
+        <p className={`text-muted-foreground ${styles.description}`}>A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className={styles.grid}>
         {projects.slice(0, 3).map((project, index) => {
           const coverImage = typeof project.coverImage === 'object' ? project.coverImage : null
           const categories = Array.isArray(project.categories) 
@@ -74,7 +75,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               id={`project-${project.id}`}
               data-project-card
               href={`/blog/${project.slug}`}
-              className={`group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-all duration-700 ${
+              className={`group bg-card ${styles.projectCard} ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
@@ -82,37 +83,36 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {coverImage && (
-                <div className="relative h-[11.25rem]">
+                <div className={styles.imageWrapper}>
                   <Image
                     src={coverImage.sizes?.large?.url || coverImage.url || ''}
                     alt={coverImage.alt || project.title}
                     fill
-                    className="object-cover grayscale brightness-110 group-hover:grayscale group-hover:invert group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                    className={styles.projectImage}
                   />
                 </div>
               )}
 
-              <div className="h-[16.875rem]" style={{ padding: '22px' }}>
-                <div className="text-muted-foreground mb-2" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.15em' }}>
+              <div className={styles.cardContent}>
+                <div className={`text-muted-foreground ${styles.projectNumber}`}>
                   {String(index + 1).padStart(2, '0')} / 03
                 </div>
-                <h3 className="font-bold mb-2.5 line-clamp-2 group-hover:text-primary transition-colors" style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.2rem' }}>
+                <h3 className={styles.projectTitle}>
                   {project.title}
                 </h3>
 
                 {project.excerpt && (
-                  <p className="text-muted-foreground line-clamp-4 mb-4" style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}>
+                  <p className={`text-muted-foreground ${styles.projectExcerpt}`}>
                     {project.excerpt}
                   </p>
                 )}
 
                 {tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className={styles.tagsWrapper}>
                     {tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag.id}
-                        className="inline-block text-xs rounded-full bg-secondary text-secondary-foreground"
-                        style={{ padding: '4px 11px' }}
+                        className={`bg-secondary text-secondary-foreground ${styles.tag}`}
                       >
                         {tag.name}
                       </span>
@@ -125,11 +125,10 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
         })}
       </div>
 
-      <div className="flex justify-center">
+      <div className={styles.buttonWrapper}>
         <Link
           href="/blog/projects"
-          className="inline-flex items-center gap-2 px-6 py-2 mt-4 bg-muted text-foreground rounded-lg font-medium hover:bg-muted/70 transition-colors shadow-sm hover:shadow-md"
-          style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+          className={`bg-muted text-foreground ${styles.viewAllButton}`}
         >
           View all projects
           <svg

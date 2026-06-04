@@ -3,19 +3,20 @@
 import { SkillCard, SkillCardHeader, SkillCardTitle, SkillCardContent } from "./skill-card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import { ScrollDown } from "./scroll-down";
+import styles from "./styles/skills-section.module.css";
 
 const SkillsSection = () => {
   return (
-    <div id="skills" className="mb-6 mt-16 h-screen relative">
-      <div className="text-center">
-        <p className="mb-3.5 text-[0.78rem] font-normal text-muted-foreground tracking-[0.25em] uppercase flex items-center justify-center gap-2.5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          <span className="w-8 h-[1px] bg-muted-foreground"></span>
+    <div id="skills" className={styles.section}>
+      <div className={styles.header}>
+        <p className={`text-muted-foreground ${styles.label}`}>
+          <span className="bg-muted-foreground w-8 h-[1px]"></span>
           What I Work With
         </p>
-        <h2 className="inline-block font-extrabold leading-[1.1] mb-5 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent" style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)' }}>My Tech Stack</h2>
-        <p className="text-muted-foreground mb-6 leading-[1.7] mx-auto" style={{ maxWidth: '520px' }}>A collection of tools and technologies I've mastered to build end-to-end solutions.</p>
+        <h2 className={styles.title}>My Tech Stack</h2>
+        <p className={`text-muted-foreground ${styles.description}`}>A collection of tools and technologies I've mastered to build end-to-end solutions.</p>
       </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 pb-20">
+      <div className={styles.grid}>
         {portfolioConfig.skills.map((skill, index) => (
           <SkillCard key={index}>
             <SkillCardHeader>
@@ -39,7 +40,7 @@ const SkillsSection = () => {
           </SkillCard>
         ))}
       </div>
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2">
+      <div className={styles.scrollDownWrapper}>
         <ScrollDown targetId="projects" />
       </div>
     </div>
