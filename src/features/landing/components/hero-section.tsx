@@ -4,7 +4,7 @@ import { useLanguage } from "@/features/i18n";
 import { Card, CardContent } from "@/shared/ui/card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import Image from "next/image";
-import { ScrollDown } from "./scroll-down";
+import { ScrollDown } from "../ui/scroll-down";
 import SkillsSection from "./skills-section";
 import styles from "./styles/hero-section.module.css";
 
