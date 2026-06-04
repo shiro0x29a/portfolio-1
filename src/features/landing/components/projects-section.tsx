@@ -128,7 +128,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
       <div className={styles.buttonWrapper}>
         <Link
           href="/blog/projects"
-          className={`bg-muted text-foreground ${styles.viewAllButton}`}
+          className={`bg-muted text-primary ${styles.viewAllButton}`}
         >
           View all projects
           <svg
