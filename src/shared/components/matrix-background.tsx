@@ -17,6 +17,11 @@ export default function MatrixBackground() {
     let drops: MatrixDrop[] = [];
     let particles: Particle[] = [];
 
+    // Function to check if dark theme is active
+    const isDarkTheme = () => {
+      return document.documentElement.classList.contains('dark');
+    };
+
     class MatrixDrop {
       x: number;
       y: number;
@@ -55,15 +60,20 @@ export default function MatrixBackground() {
 
       draw(ctx: CanvasRenderingContext2D) {
         ctx.font = "12px 'Courier New', monospace";
+        const darkMode = isDarkTheme();
 
         for (let i = 0; i < this.chars.length; i++) {
           const y = this.y + i * 14;
 
           if (i === this.chars.length - 1) {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 2.5})`;
+            // Bright head - white in dark mode, black in light mode
+            const color = darkMode ? '255, 255, 255' : '0, 0, 0';
+            ctx.fillStyle = `rgba(${color}, ${this.opacity * 2.5})`;
           } else {
+            // Fading trail
             const opacity = (i / this.chars.length) * this.opacity;
-            ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+            const color = darkMode ? '255, 255, 255' : '0, 0, 0';
+            ctx.fillStyle = `rgba(${color}, ${opacity})`;
           }
 
           ctx.fillText(this.chars[i], this.x, y);
@@ -107,7 +117,9 @@ export default function MatrixBackground() {
       }
 
       draw(ctx: CanvasRenderingContext2D) {
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        const darkMode = isDarkTheme();
+        const color = darkMode ? '255, 255, 255' : '0, 0, 0';
+        ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -169,10 +181,21 @@ export default function MatrixBackground() {
     animationFrameId = requestAnimationFrame(animate);
     window.addEventListener("resize", handleResize);
 
+    // Add MutationObserver to detect theme changes
+    const observer = new MutationObserver(() => {
+      // Theme changed, no need to do anything - the draw methods will pick up the new theme automatically
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
       clearTimeout(resizeTimeout);
+      observer.disconnect();
     };
   }, []);
 
