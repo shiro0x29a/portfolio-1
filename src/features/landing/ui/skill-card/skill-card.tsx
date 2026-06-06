@@ -39,4 +39,8 @@ function SkillCardContent({ className, ...props }: React.ComponentProps<"div">) 
   return <div className={cn(styles.content, className)} {...props} />;
 }
 
-export { SkillCard, SkillCardHeader, SkillCardTitle, SkillCardContent };
+function SkillCardIcon({ className, ...props }: React.ComponentProps<"span">) {
+  return <span className={cn(styles.icon, "text-3xl", className)} {...props} />;
+}
+
+export { SkillCard, SkillCardHeader, SkillCardTitle, SkillCardContent, SkillCardIcon };

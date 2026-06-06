@@ -1,6 +1,6 @@
 "use client";
 
-import { SkillCard, SkillCardHeader, SkillCardTitle, SkillCardContent, SkillTag } from "../ui/skill-card";
+import { SkillCard, SkillCardHeader, SkillCardTitle, SkillCardContent, SkillCardIcon, SkillTag } from "../ui/skill-card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import { ScrollDown } from "../ui/scroll-down";
 import styles from "./styles/skills-section.module.css";
@@ -21,7 +21,7 @@ const SkillsSection = () => {
           <SkillCard key={index}>
             <SkillCardHeader>
               <div className="flex items-center gap-3">
-                <span className="text-3xl">{skill.icon}</span>
+                <SkillCardIcon>{skill.icon}</SkillCardIcon>
                 <SkillCardTitle className="text-lg">{skill.title}</SkillCardTitle>
               </div>
             </SkillCardHeader>
