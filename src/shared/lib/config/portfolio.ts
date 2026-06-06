@@ -11,6 +11,13 @@ export const portfolioConfig = {
     greeting: "Hey there, I'm",
     name: "Shiro 0x29a",
     title: "Fullstack Developer",
+    titles: [
+      "Fullstack Developer",
+      "Unix Native",
+      "CLI Maniac",
+      "Problem Solver"
+    ],
+    // description: "I build scalable web applications, backend systems, and automation scripts that help businesses automate workflows, scale operations, and deliver better user experiences. Look through some of my work! If you like what you see and have a project you need coded, don't hestiate to contact me.",
     description: "I can help you build user-focused websites and applications that will increase business productivity, actuate competition advantages and revenue growth. Look through some of my work and experience! If you like what you see and have a project you need coded, don't hestiate to contact me.",
   },
 

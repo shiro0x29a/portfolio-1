@@ -6,6 +6,7 @@ import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import Image from "next/image";
 import { ScrollDown } from "../ui/scroll-down";
 import SkillsSection from "./skills-section";
+import Typewriter from "../ui/typewriter";
 import styles from "./styles/hero-section.module.css";
 
 const HeroSection = () => {
@@ -36,7 +37,7 @@ const HeroSection = () => {
                   {portfolioConfig.personal.name}
                 </h1>
                 <h2 className={`text-foreground ${styles.title}`}>
-                  {portfolioConfig.personal.title}
+                  <Typewriter texts={portfolioConfig.personal.titles} />
                 </h2>
               </div>
               <p className={`text-muted-foreground ${styles.description}`}>
