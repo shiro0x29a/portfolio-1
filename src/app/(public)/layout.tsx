@@ -6,6 +6,7 @@ import { AuthProvider, SessionProvider } from "@/features/auth";
 import { ThemeProvider } from "@/features/theme";
 import { siteConfig, baseUrl } from "@/shared/lib/config/site";
 import CustomCursor from "@/shared/components/cursor/custom-cursor";
+import MatrixBackground from "@/shared/components/matrix-background";
 
 import Script from "next/script";
 import "../globals.css";
@@ -109,6 +110,7 @@ const PublicLayout = ({
       </head>
       <body className="font-sans antialiased">
         <CustomCursor />
+        <MatrixBackground />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
