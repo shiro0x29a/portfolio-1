@@ -44,14 +44,14 @@ const HeroSection = () => {
                 {portfolioConfig.personal.description}
               </p>
               <div className={styles.cta}>
-                <a href="#projects" className={styles.primary}>
+                <a href="#projects" className={styles.btnPrimary}>
                   View Projects
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
                 </a>
-                <a href="#contact" className={styles.secondary}>
+                <a href="#contact" className={styles.btnSecondary}>
                   Get in Touch
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
