@@ -29,6 +29,14 @@
   }
 }
 
+@media (min-width: 768px) {
+  .card {
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
 /* Темная тема через html.dark */
 :global(html.dark) .card {
   --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
