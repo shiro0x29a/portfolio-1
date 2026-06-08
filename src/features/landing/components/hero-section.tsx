@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import Image from "next/image";
 import { ScrollDown } from "../ui/scroll-down";
-import SkillsSection from "./skills-section";
 import Typewriter from "../ui/typewriter";
 import styles from "./styles/hero-section.module.css";
 
@@ -64,8 +63,6 @@ const HeroSection = () => {
         </CardContent>
         <ScrollDown />
       </Card>
-
-      <SkillsSection />
     </div>
   );
 };
