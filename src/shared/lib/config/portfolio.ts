@@ -13,7 +13,7 @@ export const portfolioConfig = {
     title: "Fullstack Developer",
     titles: [
       "Fullstack Developer",
-      "Unix Native",
+      "Linux Native",
       "CLI Maniac",
       "Problem Solver"
     ],

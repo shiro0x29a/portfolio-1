@@ -11,7 +11,6 @@
   transition: all 0.3s;
   /* Default для светлой темы - множественные слои теней для эффекта обволакивания */
   --card-shadow-hover: 
-    /* 0 0 20px rgba(0, 0, 0, 0.8), */
     0 0 40px rgba(0, 0, 0, 0.6),
     0 0 60px rgba(0, 0, 0, 0.4),
     0 10px 40px -10px rgba(0, 0, 0, 0.9);
@@ -19,22 +18,6 @@
 
 .card:hover {
   box-shadow: var(--card-shadow-hover);
-}
-
-@media (min-width: 1024px) {
-  .card {
-    gap: 0.75rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .card {
-    gap: 0.5rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
 }
 
 /* Темная тема через html.dark */
@@ -46,6 +29,42 @@
 @media (prefers-color-scheme: dark) {
   :global(html:not(.light)) .card {
     --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    gap: 0.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    gap: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .header {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+  
+  .content {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
   }
 }
 
@@ -75,76 +94,3 @@
   opacity: 1;
 }
 
-.card:hover {
-  box-shadow: var(--card-shadow-hover);
-}
-
-/* Темная тема через html.dark */
-:global(html.dark) .card {
-  --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
-}
-
-/* Темная тема через media query */
-@media (prefers-color-scheme: dark) {
-  :global(html:not(.light)) .card {
-    --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
-  }
-}
-
-.header {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-rows: auto auto;
-  align-items: flex-start;
-  gap: 0.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.title {
-  line-height: 1;
-  font-weight: 600;
-  font-family: 'Syne', sans-serif;
-}
-
-.content {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.card:hover {
-  box-shadow: var(--card-shadow-hover);
-}
-
-/* Темная тема через html.dark */
-:global(html.dark) .card {
-  --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
-}
-
-/* Темная тема через media query */
-@media (prefers-color-scheme: dark) {
-  :global(html:not(.light)) .card {
-    --card-shadow-hover: 0 10px 40px -10px rgba(255, 255, 255, 0.6);
-  }
-}
-
-.header {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-rows: auto auto;
-  align-items: flex-start;
-  gap: 0.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.title {
-  line-height: 1;
-  font-weight: 600;
-  font-family: 'Syne', sans-serif;
-}
-
-.content {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
