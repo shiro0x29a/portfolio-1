@@ -182,9 +182,12 @@
 }
 
 @media (max-width: 767px) {
+  .card {
+    height: auto;
+  }
   .contentWrapper {
     align-items: center;
-    gap: 2rem;
+    gap: 1.25rem;
     text-align: center;
   }
   
@@ -215,6 +218,7 @@
   
   .description {
     font-size: 1rem;
+    max-width: 18.5rem;
   }
   
   .cta {

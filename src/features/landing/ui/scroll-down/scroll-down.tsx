@@ -22,7 +22,10 @@ export function ScrollDown({ targetId = "skills" }: ScrollDownProps) {
   };
 
   return (
-    <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+    // <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+    // <div className="hidden md:flex md:absolute md:bottom-2 md:left-1/2 md:-translate-x-1/2">
+    // <div className="absolute bottom-1/2 right-4 -translate-y-1/2 z-10 md:bottom-2 md:left-1/2 md:right-auto md:translate-y-0 md:-translate-x-1/2">
+    <div className="absolute bottom-1/2 left-4 -translate-y-1/2 z-10 md:bottom-2 md:left-1/2 md:translate-y-0 md:-translate-x-1/2">
       <button
         onClick={handleScroll}
         className="text-primary hover:translate-y-2 transition-transform duration-300 cursor-pointer"
