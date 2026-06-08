@@ -28,7 +28,7 @@
 
 .cardContent {
   /* padding-top: 2rem; */
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
   width: 100%;
 }
 
@@ -42,6 +42,23 @@
 @media (min-width: 768px) {
   .contentWrapper {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+      padding-top: 0rem;
+  }
+
+  .card {
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .contentWrapper {
+    padding: 0 8rem;
   }
 }
 
