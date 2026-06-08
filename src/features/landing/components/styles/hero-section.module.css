@@ -73,7 +73,9 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 4.5rem;
+  /* font-size: 4.5rem; */
+  /* font-size: 5rem; */
+  font-size: clamp(2.25rem, 8vw, 5rem);
   line-height: 1;
   font-weight: 700;
 }
@@ -98,7 +100,7 @@
 .cta {
   display: flex;
   gap: 1rem;
-  /* margin-top: 2.5rem; */
+  margin-top: 1rem;
 }
 
 .btnPrimary {
@@ -164,6 +166,14 @@
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
+}
+
+.btnSecondary svg {
+  transition: transform 0.3s ease;
+}
+
+.btnSecondary:hover svg {
+  transform: translateX(4px);
 }
 
 /* Light theme styles for secondary button */
