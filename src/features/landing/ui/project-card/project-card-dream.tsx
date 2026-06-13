@@ -32,9 +32,9 @@ export function ProjectCardDream({ project, index, isVisible }: ProjectCardDream
             <feComponentTransfer in="color" result="flood_alpha">
               <feFuncA type="linear" slope="0.4"></feFuncA>
             </feComponentTransfer>
-            <feGaussianBlur in="srcRGB" stdDeviation="1.8"></feGaussianBlur>
+            <feGaussianBlur in="srcRGB" stdDeviation="1.6"></feGaussianBlur>
             <feComponentTransfer result="blur_alpha">
-              <feFuncA type="linear" slope="0.6"></feFuncA>
+              <feFuncA type="linear" slope="0.5"></feFuncA>
             </feComponentTransfer>
             <feBlend in="blur_alpha" in2="srcRGB" mode="normal" result="source_blur"></feBlend>
             <feBlend in2="source_blur" in="flood_alpha" mode="overlay"></feBlend>
@@ -44,11 +44,11 @@ export function ProjectCardDream({ project, index, isVisible }: ProjectCardDream
               <feFuncB type="linear" slope="1.1"></feFuncB>
             </feComponentTransfer>
             <feComponentTransfer result="contrast">
-              <feFuncR type="linear" slope="0.9" intercept="0.05"></feFuncR>
-              <feFuncG type="linear" slope="0.9" intercept="0.05"></feFuncG>
-              <feFuncB type="linear" slope="0.9" intercept="0.05"></feFuncB>
+              <feFuncR type="linear" slope="0.9" intercept="0.02"></feFuncR>
+              <feFuncG type="linear" slope="0.9" intercept="0.02"></feFuncG>
+              <feFuncB type="linear" slope="0.9" intercept="0.02"></feFuncB>
             </feComponentTransfer>
-            <feColorMatrix type="saturate" values="0.6"></feColorMatrix>
+            <feColorMatrix type="saturate" values="0.8"></feColorMatrix>
             <feComponentTransfer></feComponentTransfer>
           </filter>
         </defs>

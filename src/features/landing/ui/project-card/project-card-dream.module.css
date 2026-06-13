@@ -7,7 +7,7 @@
 }
 
 .projectCard:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .imageWrapper {
@@ -17,12 +17,13 @@
 
 .projectImage {
   object-fit: cover;
-  transition: all 0.8s;
+  transition: all 0.5s;
   filter: url(#dreamFilter);
 }
 
 .projectCard:hover .projectImage {
   transform: scale(1.05);
+  filter: none;
 }
 
 .cardContent {
