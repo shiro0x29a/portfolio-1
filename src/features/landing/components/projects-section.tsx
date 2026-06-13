@@ -5,6 +5,7 @@ import type { Post } from '@/features/payload/lib/types'
 import { useEffect, useRef, useState } from 'react'
 import { ProjectCard } from '../ui/project-card'
 import { ProjectCardDream } from '../ui/project-card'
+import { ProjectCardDreamy } from '../ui/project-card'
 import styles from './styles/projects-section.module.css'
 
 interface RecentProjectsProps {
@@ -63,7 +64,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
           const isVisible = visibleCards.has(`project-${project.id}`)
 
           return (
-            <ProjectCardDream
+            <ProjectCardDreamy
               key={project.id}
               project={project}
               index={index}
