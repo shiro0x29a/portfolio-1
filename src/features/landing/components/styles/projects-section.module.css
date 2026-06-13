@@ -70,11 +70,11 @@
   border-radius: 0.5rem;
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: all 0.7s;
+  /* transition: all 0.1s; */
 }
 
 .projectCard:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .imageWrapper {
@@ -85,7 +85,7 @@
 .projectImage {
   object-fit: cover;
   filter: grayscale(100%) brightness(1.1);
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 
 .projectCard:hover .projectImage {
