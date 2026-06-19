@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage, getTranslations, useTranslations } from "@/features/i18n";
 import { useAuth } from "@/features/auth";
 import { siteConfig } from "@/shared/lib/config/site";
@@ -21,6 +21,22 @@ const Header = () => {
   const { t } = useTranslations(messages);
   const isRtl = locale === "ar";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
+
+  useEffect(() => {
+    // Set initial hash
+    setActiveHash(window.location.hash || "#hero");
+    
+    const handleHashChange = () => {
+      setActiveHash(window.location.hash || "#hero");
+    };
+    
+    window.addEventListener("hashchange", handleHashChange);
+    
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   return (
     <header className="border-border bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
@@ -42,35 +58,39 @@ const Header = () => {
           </div>
 
           <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex">
-            <Link
+            <a
               href="/#hero"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                pathname === "/"
+                pathname === "/" && activeHash === "#hero"
                   ? "text-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
               Home
-            </Link>
-            <Link
+            </a>
+            <a
               href="/#skills"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                "text-muted-foreground hover:text-foreground hover:bg-accent"
+                pathname === "/" && activeHash === "#skills"
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
               Skills
-            </Link>
-            <Link
+            </a>
+            <a
               href="/#projects"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                "text-muted-foreground hover:text-foreground hover:bg-accent"
+                pathname === "/" && activeHash === "#projects"
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
               Projects
-            </Link>
+            </a>
           </nav>
 
           <div className="z-10 hidden items-center gap-2 lg:flex">
@@ -97,38 +117,42 @@ const Header = () => {
         <div className="border-border bg-background border-t lg:hidden">
           <div className="mx-auto max-w-7xl space-y-3 px-4 py-4">
             <nav className="flex flex-col gap-1">
-              <Link
+              <a
                 href="/#hero"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  pathname === "/"
+                  pathname === "/" && activeHash === "#hero"
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 Home
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/#skills"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  pathname === "/" && activeHash === "#skills"
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 Skills
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/#projects"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  pathname === "/" && activeHash === "#projects"
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 Projects
-              </Link>
+              </a>
             </nav>
           </div>
         </div>
