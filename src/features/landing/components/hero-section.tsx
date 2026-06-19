@@ -13,7 +13,7 @@ const HeroSection = () => {
   const isRtl = locale === "ar";
 
   return (
-    <div id="hero" className={`${styles.section} ${isRtl ? "text-right" : "text-left"}`}>
+    <div id="hero" className={`${styles.container} ${isRtl ? "text-right" : "text-left"}`}>
       <Card className={styles.card}>
         <CardContent className={styles.cardContent}>
           <div className={styles.contentWrapper}>
