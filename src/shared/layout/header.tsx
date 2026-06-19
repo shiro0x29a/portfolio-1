@@ -43,7 +43,7 @@ const Header = () => {
 
           <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex">
             <Link
-              href="/"
+              href="/#hero"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 pathname === "/"
@@ -51,26 +51,22 @@ const Header = () => {
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
-              {t("navigation.home")}
+              Home
             </Link>
             <Link
-              href="/about"
+              href="/#skills"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                pathname === "/about"
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
-              {t("navigation.about")}
+              Skills
             </Link>
             <Link
-              href="/blog/projects"
+              href="/#projects"
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                pathname?.startsWith("/blog")
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
             >
               Projects
@@ -102,7 +98,7 @@ const Header = () => {
           <div className="mx-auto max-w-7xl space-y-3 px-4 py-4">
             <nav className="flex flex-col gap-1">
               <Link
-                href="/"
+                href="/#hero"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
@@ -111,28 +107,24 @@ const Header = () => {
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
-                {t("navigation.home")}
+                Home
               </Link>
               <Link
-                href="/about"
+                href="/#skills"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  pathname === "/about"
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
-                {t("navigation.about")}
+                Skills
               </Link>
               <Link
-                href="/blog/projects"
+                href="/#projects"
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  pathname?.startsWith("/blog")
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 Projects
