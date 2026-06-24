@@ -10,7 +10,7 @@ export function ScrollDown({ targetId = "skills" }: ScrollDownProps) {
   const handleScroll = () => {
     const targetSection = document.getElementById(targetId);
     if (targetSection) {
-      const offset = 80; // offset in pixels
+      const offset = 64; // offset in pixels like the height of a fixed header
       const elementPosition = targetSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
