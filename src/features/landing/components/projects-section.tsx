@@ -4,7 +4,7 @@ import Link from 'next/link'
 import type { Post } from '@/features/payload/lib/types'
 import { useEffect, useRef, useState } from 'react'
 import { ProjectCardDreamy } from '../ui/project-card'
-import useInView from '@/shared/hooks/useInView'
+import useInView from '@/shared/hooks/use-in-view'
 import styles from './styles/projects-section.module.css'
 
 interface RecentProjectsProps {

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { portfolioConfig } from "@/shared/lib/config/portfolio";
 import Image from "next/image";
 import { ScrollDown } from "../ui/scroll-down";
-import Typewriter from "../ui/typewriter";
+import useTypewriter from "@/shared/hooks/use-typewriter";
 import styles from "./styles/hero-section.module.css";
 
 const HeroSection = () => {
@@ -36,7 +36,7 @@ const HeroSection = () => {
                   {portfolioConfig.personal.name}
                 </h1>
                 <h2 className={`text-foreground ${styles.title}`}>
-                  <Typewriter texts={portfolioConfig.personal.titles} />
+                  {useTypewriter({ texts: portfolioConfig.personal.titles })}
                 </h2>
               </div>
               <p className={`text-muted-foreground ${styles.description}`}>

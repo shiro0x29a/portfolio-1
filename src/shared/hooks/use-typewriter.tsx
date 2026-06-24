@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 
-interface TypewriterProps {
+interface UseTypewriterProps {
   texts: string[];
   className?: string;
 }
 
-export default function Typewriter({ texts, className = "" }: TypewriterProps) {
+export default function useTypewriter({ texts, className = "" }: UseTypewriterProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
