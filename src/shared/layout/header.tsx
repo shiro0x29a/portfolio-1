@@ -57,7 +57,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex">
+          <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-2 lg:flex">
             <a
               href="/#hero"
               className={cn(

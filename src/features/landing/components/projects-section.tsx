@@ -3,9 +3,8 @@
 import Link from 'next/link'
 import type { Post } from '@/features/payload/lib/types'
 import { useEffect, useRef, useState } from 'react'
-import { ProjectCard } from '../ui/project-card'
-import { ProjectCardDream } from '../ui/project-card'
 import { ProjectCardDreamy } from '../ui/project-card'
+import useInView from '@/shared/hooks/useInView'
 import styles from './styles/projects-section.module.css'
 
 interface RecentProjectsProps {
@@ -13,6 +12,7 @@ interface RecentProjectsProps {
 }
 
 export function RecentProjects({ projects }: RecentProjectsProps) {
+  const [ref, inView] = useInView()
   const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set())
   const observerRef = useRef<IntersectionObserver | null>(null)
 
@@ -49,14 +49,14 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
   }
 
   return (
-    <div id="projects" className={styles.section}>
+    <div id="projects" className={styles.section} ref={ref}>
       <div className={styles.header}>
-        <p className={`text-muted-foreground ${styles.label}`}>
+        <p className={`text-muted-foreground ${styles.label} ${styles.reveal} ${inView ? styles.visible : ''}`}>
           <span className="bg-muted-foreground w-8 h-[1px]"></span>
           What I've Built
         </p>
-        <h2 className={styles.title}>Featured Projects</h2>
-        <p className={`text-muted-foreground ${styles.description}`}>A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.</p>
+        <h2 className={`${styles.title} ${styles.reveal} ${styles.delay1} ${inView ? styles.visible : ''}`}>Featured Projects</h2>
+        <p className={`text-muted-foreground ${styles.description} ${styles.reveal} ${styles.delay2} ${inView ? styles.visible : ''}`}>A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.</p>
       </div>
 
       <div className={styles.grid}>
@@ -74,7 +74,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
         })}
       </div>
 
-      <div className={styles.buttonWrapper}>
+      <div className={`${styles.buttonWrapper} ${styles.reveal} ${styles.delay4} ${inView ? styles.visible : ''}`}>
         <Link
           href="/blog/projects"
           className={`bg-muted text-primary ${styles.viewAllButton}`}

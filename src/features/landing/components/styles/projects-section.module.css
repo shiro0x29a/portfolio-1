@@ -117,3 +117,31 @@
   color: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay1 {
+  transition-delay: 0.1s;
+}
+
+.delay2 {
+  transition-delay: 0.2s;
+}
+
+.delay3 {
+  transition-delay: 0.3s;
+}
+
+.delay4 {
+  transition-delay: 0.4s;
+}
