@@ -10,9 +10,11 @@ interface ProjectCardDreamyProps {
   project: Post
   index: number
   isVisible: boolean
+  className?: string
+  style?: CSSProperties
 }
 
-export function ProjectCardDreamy({ project, index, isVisible }: ProjectCardDreamyProps) {
+export function ProjectCardDreamy({ project, index, isVisible, className, style }: ProjectCardDreamyProps) {
   const coverImage = typeof project.coverImage === 'object' ? project.coverImage : null
   const tags = Array.isArray(project.tags)
     ? project.tags.map(tag => typeof tag === 'object' ? tag : null).filter(Boolean)
@@ -25,12 +27,8 @@ export function ProjectCardDreamy({ project, index, isVisible }: ProjectCardDrea
       id={`project-${project.id}`}
       data-project-card
       href={`/blog/${project.slug}`}
-      className={`group bg-card ${styles.projectCard} ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`group bg-card ${styles.projectCard} ${className || ''}`}
+      style={style}
     >
       {coverImage && (
         <div 
