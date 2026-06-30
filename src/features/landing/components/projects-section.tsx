@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import type { Post } from '@/features/payload/lib/types'
-import { useEffect, useRef, useState } from 'react'
 import { ProjectCardDreamy } from '../ui/project-card'
 import useInView from '@/shared/hooks/use-in-view'
 import styles from './styles/projects-section.module.css'
@@ -13,36 +12,6 @@ interface RecentProjectsProps {
 
 export function RecentProjects({ projects }: RecentProjectsProps) {
   const [ref, inView] = useInView()
-  const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set())
-  const observerRef = useRef<IntersectionObserver | null>(null)
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleCards((prev) => new Set(prev).add(entry.target.id))
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    )
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    const cards = document.querySelectorAll('[data-project-card]')
-    cards.forEach((card) => {
-      if (observerRef.current) {
-        observerRef.current.observe(card)
-      }
-    })
-  }, [projects])
 
   if (!projects || projects.length === 0) {
     return null
@@ -60,18 +29,19 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
       </div>
 
       <div className={styles.grid}>
-        {projects.slice(0, 3).map((project, index) => {
-          const isVisible = visibleCards.has(`project-${project.id}`)
-
-          return (
+        {projects.slice(0, 3).map((project, index) => (
+          <div
+            key={project.id}
+            className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
+            style={{ transitionDelay: `${0.15 * (index + 1)}s` }}
+          >
             <ProjectCardDreamy
-              key={project.id}
               project={project}
               index={index}
-              isVisible={isVisible}
+              isVisible={inView}
             />
-          )
-        })}
+          </div>
+        ))}
       </div>
 
       <div className={`${styles.buttonWrapper} ${styles.reveal} ${styles.delay4} ${inView ? styles.visible : ''}`}>
