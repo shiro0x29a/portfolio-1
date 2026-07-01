@@ -32,7 +32,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
         {projects.slice(0, 3).map((project, index) => (
           <div
             key={project.id}
-            className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
+            className={`revealScale ${inView ? 'visible' : ''}`}
             style={{ 
               transitionDelay: `${0.15 * (index + 1)}s`,
             }}
@@ -41,6 +41,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               key={project.id}
               project={project}
               index={index}
+              inView={inView}
             />
           </div>
         ))}
