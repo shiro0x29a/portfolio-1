@@ -35,8 +35,9 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
             project={project}
             index={index}
             isVisible={inView}
-            className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
-            style={{ transitionDelay: `${0.15 * (index + 1)}s` }}
+            className={`${styles.revealScale} ${inView ? styles.visible : ''} ${styles[`delay${index + 1}`]}`}
+            // className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
+            // style={{ transitionDelay: `${0.15 * (index + 1)}s` }}
           />
         ))}
       </div>

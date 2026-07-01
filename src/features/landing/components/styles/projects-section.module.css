@@ -141,6 +141,10 @@
   transform: scale(1) translateY(0);
 }
 
+.revealScale.delay1 { transition-delay: 0.15s; }
+.revealScale.delay2 { transition-delay: 0.3s; }
+.revealScale.delay3 { transition-delay: 0.45s; }
+
 .delay1 {
   transition-delay: 0.1s;
 }
