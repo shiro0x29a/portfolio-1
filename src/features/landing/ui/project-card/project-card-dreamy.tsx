@@ -9,12 +9,9 @@ import { CSSProperties } from 'react'
 interface ProjectCardDreamyProps {
   project: Post
   index: number
-  isVisible: boolean
-  className?: string
-  style?: CSSProperties
 }
 
-export function ProjectCardDreamy({ project, index, isVisible, className, style }: ProjectCardDreamyProps) {
+export function ProjectCardDreamy({ project, index}: ProjectCardDreamyProps) {
   const coverImage = typeof project.coverImage === 'object' ? project.coverImage : null
   const tags = Array.isArray(project.tags)
     ? project.tags.map(tag => typeof tag === 'object' ? tag : null).filter(Boolean)
@@ -23,12 +20,13 @@ export function ProjectCardDreamy({ project, index, isVisible, className, style 
   const imageUrl = coverImage?.sizes?.large?.url || coverImage?.url || ''
 
   return (
-    <Link
+    <div 
       id={`project-${project.id}`}
       data-project-card
+      className={`group bg-card ${styles.projectCard}`}
+    >
+    <Link
       href={`/blog/${project.slug}`}
-      className={`group bg-card ${styles.projectCard} ${className || ''}`}
-      style={style}
     >
       {coverImage && (
         <div 
@@ -72,5 +70,6 @@ export function ProjectCardDreamy({ project, index, isVisible, className, style 
         )}
       </div>
     </Link>
+    </div>
   )
 }

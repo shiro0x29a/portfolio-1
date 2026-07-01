@@ -30,15 +30,19 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
 
       <div className={styles.grid}>
         {projects.slice(0, 3).map((project, index) => (
-          <ProjectCardDreamy
+          <div
             key={project.id}
-            project={project}
-            index={index}
-            isVisible={inView}
-            className={`${styles.revealScale} ${inView ? styles.visible : ''} ${styles[`delay${index + 1}`]}`}
-            // className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
-            // style={{ transitionDelay: `${0.15 * (index + 1)}s` }}
-          />
+            className={`${styles.revealScale} ${inView ? styles.visible : ''}`}
+            style={{ 
+              transitionDelay: `${0.15 * (index + 1)}s`,
+            }}
+          >
+            <ProjectCardDreamy
+              key={project.id}
+              project={project}
+              index={index}
+            />
+          </div>
         ))}
       </div>
 

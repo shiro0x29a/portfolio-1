@@ -3,12 +3,10 @@
   border-radius: 0.5rem;
   border: 1px solid var(--border);
   overflow: hidden;
-  /* transition: all 0.5s; */
+  transition: box-shadow 0.5s;
 }
 
 .projectCard:hover {
-  /* transition-delay: 0s important!; */
-  transition: box-shadow 0.5s;
   /* box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4); */
   box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
   box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.4);
