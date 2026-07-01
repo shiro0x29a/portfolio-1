@@ -16,6 +16,8 @@
 }
 
 .label {
+  padding-top: 0.875rem;
+  padding-top: 1rem;
   margin-bottom: 0.875rem;
   font-size: 0.78rem;
   font-weight: 400;
