@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import type { Post } from '@/features/payload/lib/types'
 import { ProjectCardDreamy } from '../ui/project-card'
-import useInView from '@/shared/hooks/use-in-view'
+import { motion } from 'framer-motion'
 import styles from './styles/projects-section.module.css'
 
 interface RecentProjectsProps {
@@ -11,43 +11,90 @@ interface RecentProjectsProps {
 }
 
 export function RecentProjects({ projects }: RecentProjectsProps) {
-  const [ref, inView] = useInView()
-
   if (!projects || projects.length === 0) {
     return null
   }
 
+  // Анимация для заголовков (translateY + fade)
+  const revealVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  }
+
+  // Анимация для карточек (scale + translateY + fade)
+  const revealScaleVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: { opacity: 1, scale: 1, y: 0 }
+  }
+
   return (
-    <div id="projects" className={styles.section} ref={ref}>
+    <div id="projects" className={styles.section}>
       <div className={styles.header}>
-        <p className={`text-muted-foreground ${styles.label} ${styles.reveal} ${inView ? styles.visible : ''}`}>
+        <motion.p 
+          className={`text-muted-foreground ${styles.label}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={revealVariants}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="bg-muted-foreground w-8 h-[1px]"></span>
           What I've Built
-        </p>
-        <h2 className={`${styles.title} ${styles.reveal} ${styles.delay1} ${inView ? styles.visible : ''}`}>Featured Projects</h2>
-        <p className={`text-muted-foreground ${styles.description} ${styles.reveal} ${styles.delay2} ${inView ? styles.visible : ''}`}>A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.</p>
+        </motion.p>
+        
+        <motion.h2 
+          className={styles.title}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={revealVariants}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+        >
+          Featured Projects
+        </motion.h2>
+        
+        <motion.p 
+          className={`text-muted-foreground ${styles.description}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={revealVariants}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
+          A selection of projects I'm proud of — each solving a real problem with clean, production-ready code.
+        </motion.p>
       </div>
 
       <div className={styles.grid}>
         {projects.slice(0, 3).map((project, index) => (
-          <div
+          <motion.div
             key={project.id}
-            className={`revealScale ${inView ? 'visible' : ''}`}
-            style={{ 
-              transitionDelay: `${0.15 * (index + 1)}s`,
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={revealScaleVariants}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.15 * (index + 1),
+              ease: 'easeOut' 
             }}
           >
             <ProjectCardDreamy
-              key={project.id}
               project={project}
               index={index}
-              inView={inView}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className={`${styles.buttonWrapper} ${styles.reveal} ${styles.delay4} ${inView ? styles.visible : ''}`}>
+      <motion.div 
+        className={styles.buttonWrapper}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={revealVariants}
+        transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+      >
         <Link
           href="/blog/projects"
           className={`bg-muted text-primary ${styles.viewAllButton}`}
@@ -68,7 +115,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
             <path d="m12 5 7 7-7 7" />
           </svg>
         </Link>
-      </div>
+      </motion.div>
     </div>
   )
 }

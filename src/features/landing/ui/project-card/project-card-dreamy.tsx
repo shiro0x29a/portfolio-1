@@ -9,10 +9,9 @@ import { CSSProperties } from 'react'
 interface ProjectCardDreamyProps {
   project: Post
   index: number
-  inView?: boolean
 }
 
-export function ProjectCardDreamy({ project, index, inView }: ProjectCardDreamyProps) {
+export function ProjectCardDreamy({ project, index }: ProjectCardDreamyProps) {
   const coverImage = typeof project.coverImage === 'object' ? project.coverImage : null
   const tags = Array.isArray(project.tags)
     ? project.tags.map(tag => typeof tag === 'object' ? tag : null).filter(Boolean)
@@ -23,12 +22,7 @@ export function ProjectCardDreamy({ project, index, inView }: ProjectCardDreamyP
   return (
     <div 
       id={`project-${project.id}`}
-      data-project-card
-      className={`group bg-card ${styles.projectCard} revealScale ${inView ? 'visible' : ''} ${
-        inView
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      }`}
+      className={`group bg-card ${styles.projectCard}`}
     >
     <Link
       href={`/blog/${project.slug}`}
